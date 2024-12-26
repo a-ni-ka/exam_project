@@ -10,10 +10,13 @@ pages = {
         st.Page("pages/search_page.py", title="🔎 Search"),
         st.Page("pages/learn_page.py", title="📖 Learn"),
         st.Page("pages/profile_page.py", title="👤 Profile")
+    ],
+    "Your Account": [
+        st.Page("pages/login_page.py", title="Log in"),
+        st.Page("pages/registration_page.py", title="Create Account")
     ]
 }
 
+st.logo(image="images/app_logo.png", size="large", icon_image="images/app_icon.png")
 pg = st.navigation(pages)
 pg.run()
-
-# home, listen, search, learn, profile = st.tabs(["🏠", "🎙️", "🔎", "📖", "👤"])

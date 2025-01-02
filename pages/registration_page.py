@@ -5,7 +5,6 @@ placeholder = st.empty()
 with placeholder.form("Registration"):
     username = st.text_input("Username*", placeholder="Your username")
     email = st.text_input("E-Mail*", placeholder="example@mail.com")
-    birth_date = st.date_input("Birth Date", value=None)
     password = st.text_input("Password*", type="password", placeholder="Your password")
     repeat_password = st.text_input("Repeat Password*", type="password", placeholder="Repeat password")
     submit_button = st.form_submit_button("Register")

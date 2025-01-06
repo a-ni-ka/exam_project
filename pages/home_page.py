@@ -1,4 +1,25 @@
 import streamlit as st
+import datetime as dt
+
+greeting_options_list = [
+    "Good morning", "Good afternoon",
+    "Good evening", "Seize the night"
+]
+greeting = ""
+
+
+time = dt.datetime.now().time()
+
+if 5 <= time.hour < 12:
+    greeting = greeting_options_list[0]
+elif 12 <= time.hour < 18:
+    greeting = greeting_options_list[1]
+elif 18 <= time.hour < 24:
+    greeting = greeting_options_list[2]
+elif time.hour < 5:
+    greeting = greeting_options_list[3]
+
+st.markdown(f"**:rainbow[{greeting}!]**")
 
 st.title("Home")
 

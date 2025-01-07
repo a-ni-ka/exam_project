@@ -19,7 +19,8 @@ elif 18 <= time.hour < 24:
 elif time.hour < 5:
     greeting = greeting_options_list[3]
 
-st.markdown(f"**:rainbow[{greeting}!]**")
+if not st.session_state.credentials_check:
+    st.markdown(f"**:rainbow[{greeting}!]**")
 
 st.title("Home")
 

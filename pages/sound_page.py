@@ -5,9 +5,8 @@ from st_click_detector import click_detector
 
 def get_sound():
     placeholder.empty()
-    with placeholder.container():
-        sound = st.audio_input("Recording...",
-                               help="If the recording doesn't auto-start, click the mic icon.")
+    placeholder.audio_input("Recording...",
+                            help="If the recording doesn't auto-start, click the mic icon.")
 
 
 placeholder = st.empty()

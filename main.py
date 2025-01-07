@@ -3,6 +3,10 @@ import streamlit as st
 st.set_page_config(page_title="berimBAM Web",
                    page_icon="images/app_icon.png")
 
+# also set up a credential check
+if 'credentials_check' not in st.session_state:
+    st.session_state.credentials_check = False
+
 pages = {
     "Navigate": [
         st.Page("pages/home_page.py", title="🏠 Home"),

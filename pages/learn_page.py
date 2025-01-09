@@ -7,7 +7,9 @@ with tab1:
     st.write("image of a pandeiro")
     st.button("Get started")
 with tab2:
-    st.write("image of a berimbau")
+    st.image("https://upload.wikimedia.org/wikipedia/commons/6/67/Berimbau_parts.svg",
+             width=300,
+             caption="This file is licensed under the Creative Commons Attribution 3.0 Unported license.")
     st.button("Practice Berimbau")
 with tab3:
     st.header("Capoeira Styles")
@@ -19,7 +21,8 @@ with tab3:
         st.write(" ")
     st.header("Capoeira History")
     st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Rugendasroda.jpg/1200px-Rugendasroda.jpg",
-             width=300)
+             width=300,
+             caption="This file is licensed under the Creative Commons Attribution 3.0 Unported license.")
     with st.expander("The origins of Capoeira"):
         st.write("""
         'Capoeira developed as a result of more than three hundred years of slavery in Brazil. Enslaved Africans were taken by Portuguese colonists from various cultures in Africa. In Brazil, generations of enslaved African people shared the cultural customs, dances, rituals, and fighting techniques that would combine to become capoeira. Slaves used capoeira to fight to escape and resist capture, but concealed its combative purpose through music, song, and dance.
@@ -33,7 +36,8 @@ with tab3:
         source: Abadá Capoeira (https://www.abada.org/capoeira-history/)
         """)
     st.image("https://upload.wikimedia.org/wikipedia/en/d/d2/Mestre_Bimba.jpeg",
-             width=300)
+             width=300,
+             caption="This file is licensed under the Creative Commons Attribution 3.0 Unported license.")
     with st.expander("About Mestre Bimba"):
         st.write("""
         Birth name: Manuel dos Reis Machado (November 23, 1900 – February 5, 1974)
@@ -41,7 +45,8 @@ with tab3:
         Mestre Bimba is known as the founder of one of the most practised styles of Capoeira: capoeira regional. He is credited with being a major contributor to the legalization of Capoeira in Brazil in 1937, and in that same year officially registered the nation's first Capoeira center.
         """)
     st.image("https://upload.wikimedia.org/wikipedia/en/0/0d/Mestre_Pastinha.jpg",
-             width=300)
+             width=300,
+             caption="This file is licensed under the Creative Commons Attribution 3.0 Unported license.")
     with st.expander("About Mestre Pastinha"):
         st.write("""
         

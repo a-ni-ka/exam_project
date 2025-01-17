@@ -21,6 +21,8 @@ elif time.hour < 5:
 
 if not st.session_state.credentials_check:
     st.markdown(f"**:rainbow[{greeting}!]**")
+else:
+    st.markdown(f"**:rainbow[{greeting}!]**")
 
 st.title("Home")
 

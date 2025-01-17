@@ -13,6 +13,7 @@ def edit_profile():
     grade = st.text_input("Your grade:")
     city = st.text_input("What city are you in?")
     save_button = st.button("Save changes")
+    cancel_button = st.button("Cancel", type="primary")
     if save_button:
         document = {
             "nickname": nickname,
@@ -29,10 +30,8 @@ if not st.session_state.credentials_check:
 
 if st.session_state.credentials_check:
     profile_collection = connect_to_collection("berimbam", "profile_data")
-    st.subheader("Your Profile")
     edit_button = st.button("Edit Profile", icon=":material/settings:", on_click=edit_profile)
+    st.subheader("Your Profile")
     if profile_image is None:
         st.image(image="images/profile_pic.png", width=150)
-
-
 

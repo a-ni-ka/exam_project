@@ -1,25 +1,49 @@
 import asyncio
-from shazamio import Shazam
-from shazamio import Serialize
+from shazamio import Shazam, Serialize
 
 
-# async def process_sound(audio_input):
-#     shazam = Shazam()
-#     out = await shazam.recognize_song(audio_input)
-#     result = Serialize.full_track(data=out)
-#     youtube_data = await shazam.get_youtube_data(link=result.track.youtube_link)
-#     serialized_youtube = Serialize.youtube(data=youtube_data)
-#     return serialized_youtube.uri
+def process_sound(audio_input):
+    async def _process():
+        shazam = Shazam()
+        song = await shazam.recognize(audio_input)
+        about_track = await shazam.track_about(track_id=song["matches"][0]["id"])
+        serialize = Serialize.track(data=about_track)
+        return serialize
+    # TO DO: What if no result
+    result = asyncio.run(_process())
+    song_data = {
+        "title": result.title,
+        "artist": result.subtitle,
+        "album_cover": result.sections[0].meta_pages[1].image
+        # try if this is always the second image
+    }
+    return song_data
 
-text = "mestre barrao"
 
-import json
+def find_top_tracks():
+    async def _top_tracks():
+        shazam = Shazam()
+        return await shazam.top_world_genre_tracks(genre="capoeira", limit=5)
 
-async def search_songs():
-    text_input = "hello"
-    shazam = Shazam()
-    tracks = await shazam.search_track(query=text_input, limit=5)
-    print(json.dumps(tracks, indent=4))
+    result = asyncio.run(_top_tracks())
+
+    for track in result['tracks']:
+        serialized_track = Serialize.track(data=track)
+        print(serialized_track.spotify_url)
 
 
-asyncio.run(search_songs())
+def search_songs(text_input):
+    async def _search():
+        shazam = Shazam()
+        return await shazam.search_track(query=text_input, limit=7)
+
+    result = asyncio.run(_search())
+    song_list = []
+    for element in result["tracks"]["hits"]:
+        song_list.append({
+            "title": element["heading"]["title"],
+            "artist": element["heading"]["subtitle"],
+            "album_cover": element["images"]["default"]
+        })
+
+    return song_list

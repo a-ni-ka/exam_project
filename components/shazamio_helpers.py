@@ -5,19 +5,18 @@ from shazamio import Shazam, Serialize
 def process_sound(audio_input):
     async def _process():
         shazam = Shazam()
-        song = await shazam.recognize(audio_input)
-        about_track = await shazam.track_about(track_id=song["matches"][0]["id"])
+        match_results = await shazam.recognize(audio_input)
+        if len(match_results["matches"]) == 0:
+            return None
+        about_track = await shazam.track_about(track_id=match_results["matches"][0]["id"])
         serialize = Serialize.track(data=about_track)
-        return serialize
-    # TO DO: What if no result
-    result = asyncio.run(_process())
-    song_data = {
-        "title": result.title,
-        "artist": result.subtitle,
-        "album_cover": result.sections[0].meta_pages[1].image
-        # try if this is always the second image
-    }
-    return song_data
+        song_data = {
+            "title": serialize.title,
+            "artist": serialize.subtitle,
+            "album_cover": serialize.sections[0].meta_pages[1].image
+        }
+        return song_data
+    return asyncio.run(_process())
 
 
 def find_top_tracks():

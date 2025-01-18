@@ -7,3 +7,6 @@ artist = st.session_state.current_song["artist"]
 
 st.header(title)
 st.subheader(artist)
+
+# how to play music??
+# Maybe make a skript search on YouTube for the name and song title and pick the first result to display?

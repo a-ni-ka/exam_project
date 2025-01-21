@@ -29,6 +29,7 @@ with placeholder.form("Login"):
 
             if password == registered_password:
                 st.session_state.credentials_check = True
+                st.session_state.user = username
                 st.switch_page("pages/home_page.py")
             else:
                 st.error("The username/password is not correct")

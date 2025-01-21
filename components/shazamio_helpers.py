@@ -19,18 +19,6 @@ def process_sound(audio_input):
     return asyncio.run(_process())
 
 
-def find_top_tracks():
-    async def _top_tracks():
-        shazam = Shazam()
-        return await shazam.top_world_genre_tracks(genre="capoeira", limit=5)
-
-    result = asyncio.run(_top_tracks())
-
-    for track in result['tracks']:
-        serialized_track = Serialize.track(data=track)
-        print(serialized_track.spotify_url)
-
-
 def search_songs(text_input):
     async def _search():
         shazam = Shazam()
@@ -44,5 +32,4 @@ def search_songs(text_input):
             "artist": element["heading"]["subtitle"],
             "album_cover": element["images"]["default"]
         })
-
     return song_list

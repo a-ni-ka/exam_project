@@ -4,7 +4,7 @@ st.set_page_config(page_title="berimBAM Web",
                    page_icon="images/app_icon.png")
 
 # also set up a credential check
-if 'credentials_check' not in st.session_state:
+if "credentials_check" not in st.session_state:
     st.session_state.credentials_check = False
 
 if not st.session_state.credentials_check:
@@ -15,7 +15,7 @@ if not st.session_state.credentials_check:
             st.Page("pages/search_page.py", title="🔎 Search"),
             st.Page("pages/learn_page.py", title="📖 Learn"),
             st.Page("pages/profile_page.py", title="👤 Profile"),
-            st.Page("pages/song_page.py", title="")
+            st.Page("pages/song_page.py", title="Currently playing...")
         ],
         "Your Account": [
             st.Page("pages/login_page.py", title="Log in"),
@@ -29,7 +29,8 @@ else:
             st.Page("pages/sound_page.py", title="🎙️ berimBAM"),
             st.Page("pages/search_page.py", title="🔎 Search"),
             st.Page("pages/learn_page.py", title="📖 Learn"),
-            st.Page("pages/profile_page.py", title="👤 Profile")
+            st.Page("pages/profile_page.py", title="👤 Profile"),
+            st.Page("pages/song_page.py", title="Currently playing...")
         ]
     }
     with st.sidebar:

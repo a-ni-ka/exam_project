@@ -66,4 +66,4 @@ if st.session_state.credentials_check:
         st.write(f"Located in: {list(profile_data[profile_data.user == st.session_state.user].city)[0]}")
     else:
         st.image(image="images/profile_pic.png", width=150)
-
+        st.write("Click 'Edit Profile' to add some information about yourself.")

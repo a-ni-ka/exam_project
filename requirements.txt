@@ -1,0 +1,3 @@
+pymongo==4.10.1
+shazamio==0.7.0
+shazamio_core==1.0.7

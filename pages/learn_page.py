@@ -4,7 +4,7 @@ st.title("Learn about Capoeira")
 
 tab1, tab2, tab3 = st.tabs(["Rhythm excercise", "Berimbau practice", "Capoeira Theory"])
 with tab1:
-    st.write("image of a pandeiro")
+    st.image("https://upload.wikimedia.org/wikipedia/commons/6/65/Pandeiro.jpg")
     st.button("Get started")
 with tab2:
     st.image("https://upload.wikimedia.org/wikipedia/commons/6/67/Berimbau_parts.svg",

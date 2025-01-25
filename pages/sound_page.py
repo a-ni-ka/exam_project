@@ -1,5 +1,5 @@
 import streamlit as st
-from st_click_detector import click_detector
+# from st_click_detector import click_detector
 # custom component by vivien: https://github.com/vivien000/st-click-detector
 from components.shazamio_helpers import process_sound
 

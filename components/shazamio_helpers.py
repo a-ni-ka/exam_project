@@ -25,6 +25,8 @@ def search_songs(text_input):
         return await shazam.search_track(query=text_input, limit=7)
 
     result = asyncio.run(_search())
+    if result == {}:
+        return None
     song_list = []
     for element in result["tracks"]["hits"]:
         song_list.append({

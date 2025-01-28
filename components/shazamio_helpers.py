@@ -13,7 +13,8 @@ def process_sound(audio_input):
         song_data = {
             "title": serialize.title,
             "artist": serialize.subtitle,
-            "album_cover": serialize.sections[0].meta_pages[1].image
+            "album_cover": serialize.sections[0].meta_pages[1].image,
+            "preview": serialize.ringtone
         }
         return song_data
     return asyncio.run(_process())
@@ -32,6 +33,7 @@ def search_songs(text_input):
         song_list.append({
             "title": element["heading"]["title"],
             "artist": element["heading"]["subtitle"],
-            "album_cover": element["images"]["default"]
+            "album_cover": element["images"]["default"],
+            "preview": element["stores"]["apple"]["previewurl"]
         })
     return song_list

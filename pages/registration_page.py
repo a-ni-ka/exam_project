@@ -33,7 +33,7 @@ with placeholder.form("Registration"):
         usernames = list(user_data.username)
         if username in usernames:
             st.error("Username taken", icon="⚠️")
-        if len(username) < 1 and len(password) < 1:
+        elif len(username) < 1 and len(password) < 1:
             st.error("Please enter user name and password", icon="⚠️")
         elif len(username) < 1:
             st.error("Please enter a user name", icon="⚠️")

@@ -5,8 +5,6 @@ st.title("Search")
 
 search = st.text_input("Search for songs, artists, albums...", placeholder="🔎 What are you looking for?")
 
-container = st.empty()
-
 if search:
     song_list = search_songs(search)
     if song_list is None:

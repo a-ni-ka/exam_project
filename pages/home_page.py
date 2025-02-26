@@ -40,9 +40,9 @@ song_6 = search_songs("perola negra barrao")[0]
 song_7 = search_songs("a mare a mare nago")[2]
 song_8 = search_songs("carolina soares marinheiro")[0]
 song_9 = search_songs("deixa acontecer")[2]
-song_10 = search_songs("samba e amor")[5]
-song_11 = search_songs("deixa vida me levar")[5]
-song_12 = search_songs("vou festejar")[3]
+song_10 = search_songs("samba e amor")[1]
+song_11 = search_songs("deixa vida me levar")[1]
+song_12 = search_songs("vou festejar")[1]
 
 # to create the right layout, I used both containers and columns
 with st.container():

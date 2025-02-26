@@ -8,14 +8,12 @@ def connect_to_mongo():
     user = st.secrets['username']
     db_password = st.secrets['password']
 
-    # This is our database connection string, for a cluster called tb-ii
     uri = f"mongodb+srv://{user}:{db_password}@ani-cluster.mvp6j.mongodb.net/?retryWrites=true&w=majority&appName=ani-Cluster"
 
-    # Let's connect to our MongoClient
+    # connect to the MongoClient
     client = MongoClient(uri)
 
     try:
-        # print a message to say the
         client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
 

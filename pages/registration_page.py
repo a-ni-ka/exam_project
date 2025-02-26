@@ -5,6 +5,7 @@ from components.database import connect_to_collection
 
 
 @st.dialog("Registration successful")
+# create a dialog window after a successful registration
 def register():
     st.write("You can now log in.")
     continue_button = st.button("Continue")
@@ -14,6 +15,7 @@ def register():
 
 placeholder = st.empty()
 
+# create a form in the st.empty container
 with placeholder.form("Registration"):
     username = st.text_input("Username*", placeholder="Your username")
     email = st.text_input("E-Mail*", placeholder="example@mail.com")
@@ -44,6 +46,7 @@ with placeholder.form("Registration"):
         elif repeat_password != password:
             st.error("Passwords do not match", icon="⚠️")
         else:
+            # if all conditions are met, create a document containing the data to add to the collection
             document = {
                 "username": username,
                 "email": email,
